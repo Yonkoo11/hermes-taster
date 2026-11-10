@@ -1,0 +1,11 @@
+Taster: security-guidance
+Observed in this run: 0 high, 0 medium, 2 info. This is what happened once in a locked box, not a safety verdict.
+Run ended: ok
+
+Registered: tools=-; hooks=pre_tool_call,transform_tool_result; commands=-; cli=-
+
+INFO   hook:pre_tool_call read env var SECURITY_GUIDANCE_BLOCK (not in requires_env) [SECURITY_GUIDANCE_BLOCK]
+INFO   hook:transform_tool_result read env var SECURITY_GUIDANCE_DISABLE (not in requires_env) [SECURITY_GUIDANCE_DISABLE]
+
+Not covered: code paths that depend on time, network replies, or a real wallet; native code.
+EXIT 0

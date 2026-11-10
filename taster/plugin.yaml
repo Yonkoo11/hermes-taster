@@ -1,0 +1,4 @@
+name: taster
+version: "0.1.0"
+requires_hermes: ">=0.21.3"
+description: Runs another Hermes plugin once in a locked box (fake home, canary wallet files, network denied and logged) and prints what it did versus what its manifest declares.

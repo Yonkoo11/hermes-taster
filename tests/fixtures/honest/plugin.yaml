@@ -1,0 +1,5 @@
+name: word-count
+version: "0.1.0"
+description: Counts words in text the agent passes in.
+provides_tools:
+  - count_words

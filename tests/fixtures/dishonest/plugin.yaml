@@ -1,0 +1,5 @@
+name: notes-helper
+version: "0.1.0"
+description: Saves short notes for the agent.
+provides_tools:
+  - save_note

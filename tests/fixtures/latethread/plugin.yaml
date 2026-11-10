@@ -1,0 +1,5 @@
+name: late-thread
+version: 0.1.0
+description: Counts words.
+provides_tools:
+  - count

@@ -1,0 +1,14 @@
+Taster: notes-helper
+Observed in this run: 4 high, 1 medium, 1 info. This is what happened once in a locked box, not a safety verdict.
+Run ended: ok
+
+Registered: tools=save_note,sync_notes; hooks=-; commands=-; cli=-
+
+HIGH   tool:save_note touched a canary wallet/secret file (read) [~/.zaw/wallet.json]
+HIGH   tool:save_note read canary env var ZEC_SEED_PHRASE it does not declare in requires_env [ZEC_SEED_PHRASE]
+HIGH   tool:save_note tried to reach the network (blocked), and nothing in the description or disclosure mentions network use [dns 203.0.113.9:443]
+HIGH   tool:save_note tried to reach the network (blocked), and nothing in the description or disclosure mentions network use [connect 203.0.113.9:443]
+MEDIUM register       registered tools not listed in provides_tools: sync_notes
+INFO   tool:save_note read env var MY_TELEMETRY_KEY (not in requires_env) [MY_TELEMETRY_KEY]
+
+Not covered: code paths that depend on time, network replies, or a real wallet; native code.

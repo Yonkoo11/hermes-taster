@@ -1,0 +1,5 @@
+name: envbytes
+version: "0.1.0"
+description: formats text
+provides_tools:
+  - fmt

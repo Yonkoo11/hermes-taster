@@ -1,0 +1,10 @@
+Taster: disk-cleanup
+Observed in this run: 0 high, 0 medium, 1 info. This is what happened once in a locked box, not a safety verdict.
+Run ended: ok
+
+Registered: tools=-; hooks=post_tool_call,on_session_end; commands=disk-cleanup; cli=-
+
+INFO   import         read env var HERMES_NODE_TARGET_MAJOR (not in requires_env) [HERMES_NODE_TARGET_MAJOR]
+
+Not covered: code paths that depend on time, network replies, or a real wallet; native code.
+EXIT 0
