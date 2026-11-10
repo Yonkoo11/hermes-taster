@@ -238,8 +238,8 @@ def _exercise():
 
 
 def main():
-    import posix, threading
-    _enum, _main = threading.enumerate, threading.main_thread  # captured before the plugin can replace them
+    import posix, threading, _thread
+    _enum, _main, _count = threading.enumerate, threading.main_thread, _thread._count  # captured before the plugin can replace them
     os.environ = RecEnviron(os.environ)
     os.environb = RecEnviron(os.environb)  # bytes view: same data, must be recorded too
     posix.environ = RecEnviron(posix.environ)
@@ -253,8 +253,8 @@ def main():
         ERRORS.append({"phase": "register", "error": "no register(ctx) function"})
     _exercise()
     left = [t.name for t in _enum() if t is not _main()]
-    if left:
-        _emit({"phase": "end", "kind": "thread", "target": ", ".join(left)[:200]})
+    if left or _count() > 0:  # _count also sees threads removed from threading's list
+        _emit({"phase": "end", "kind": "thread", "target": (", ".join(left) or "thread hidden from threading")[:200]})
     # QUIET stays off: anything a leftover thread does before the exit below is still sent after the final line, which the parent marks as tampered
     out = {"registered": {k: [x[0] if isinstance(x, tuple) else x for x in v] for k, v in REG.items()},
            "events": EVENTS, "errors": ERRORS}
