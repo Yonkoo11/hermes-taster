@@ -85,6 +85,7 @@ The tests badge is not a CI badge: GitHub's runners cannot run `sandbox-exec`, s
 - **One run, one path.** Code that waits for a date, a server reply or a real wallet is not exercised. Tools are called with empty arguments.
 - **In-process attack.** A plugin written to attack Taster shares the monitor's process and can tamper with it. An out-of-process watcher would fix this and is not built.
 - **Env reads** are recorded by replacing Python's environment views. Native `getenv` and spawned programs are not seen.
+- **Raw threads.** A thread started with `_thread.start_new_thread` is not listed by Python, so the end-of-run thread check does not see it. Its actions during the run are still recorded.
 - **Untried routes:** mmap and inherited file descriptors.
 - **Audit status.** Five rounds of fresh-context review each found a new evasion and each was fixed. A sixth round found none. That is one reviewer's attempt, so treat the audit as a tripwire, not a proof.
 
