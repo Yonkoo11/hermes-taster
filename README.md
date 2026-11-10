@@ -2,7 +2,7 @@
 
 # Taster
 
-![tests](https://img.shields.io/badge/tests-14%2F14%20(run%20locally)-3fb950)
+![tests](https://img.shields.io/badge/tests-15%2F15%20(run%20locally)-3fb950)
 ![bundled](https://img.shields.io/badge/bundled%20Hermes%20plugins%20run-4%2C%200%20high-121212)
 
 ### Run a Hermes plugin once in a locked box and see what it did, next to what it said it would do.

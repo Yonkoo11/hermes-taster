@@ -238,7 +238,8 @@ def _exercise():
 
 
 def main():
-    import posix
+    import posix, threading, _thread
+    _enum, _main, _count = threading.enumerate, threading.main_thread, _thread._count  # captured before the plugin can replace them
     os.environ = RecEnviron(os.environ)
     os.environb = RecEnviron(os.environb)  # bytes view: same data, must be recorded too
     posix.environ = RecEnviron(posix.environ)
@@ -251,10 +252,9 @@ def main():
     elif "mod" in holder:
         ERRORS.append({"phase": "register", "error": "no register(ctx) function"})
     _exercise()
-    import threading
-    left = [t.name for t in threading.enumerate() if t is not threading.main_thread()]
-    if left:
-        _emit({"phase": "end", "kind": "thread", "target": ", ".join(left)[:200]})
+    left = [t.name for t in _enum() if t is not _main()]
+    if left or _count() > 0:  # _count also sees raw threads that threading does not list
+        _emit({"phase": "end", "kind": "thread", "target": (", ".join(left) or "low-level thread")[:200]})
     QUIET[0] = True
     out = {"registered": {k: [x[0] if isinstance(x, tuple) else x for x in v] for k, v in REG.items()},
            "events": EVENTS, "errors": ERRORS}
