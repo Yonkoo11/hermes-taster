@@ -89,7 +89,7 @@ The tests badge is not a CI badge: GitHub's runners cannot run `sandbox-exec`, s
 - **Untried routes:** mmap and inherited file descriptors.
 - **Audit status.** Five rounds of fresh-context review each found a new evasion and each was fixed. A sixth round found none. That is one reviewer's attempt, so treat the audit as a tripwire, not a proof.
 
-## Layout
+## Project layout
 
 ```
 taster/
