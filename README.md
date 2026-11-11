@@ -79,6 +79,13 @@ The tests badge is not a CI badge: GitHub's runners cannot run `sandbox-exec`, s
 | First tool of its kind | Not claimed. The search for prior art was thin |
 | Hermes 0.21.6 and later | Not tested. Developed against 0.21.3 |
 
+## Disclosures
+
+- Spawns `sandbox-exec` and a Python child process to run the plugin under test.
+- Reads the plugin folder you point it at, plus the Hermes and Python install folders, so they can load. Everything else under your real home is denied inside the box.
+- No network calls, no telemetry, no stored credentials, no background processes.
+- macOS only.
+
 ## Known gaps
 
 - **Native code and spawned programs.** Loading native code is flagged, and so is a spawn, but what native code or a child process does is not seen, and exec is not blocked.
