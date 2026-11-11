@@ -57,7 +57,7 @@ python3 -m taster tests/fixtures/honest; echo "exit $?"
 # exit 0
 ```
 
-Add `--json` for machine-readable output. Inside Hermes: `/taster <plugin-folder>` or `hermes taster <plugin-folder>`. Saved output from real runs, including four bundled Hermes plugins, is in [`docs/evidence/`](docs/evidence/).
+Add `--json` for machine-readable output. Registered inside Hermes as `/taster <plugin-folder>` and `hermes taster <plugin-folder>`; those two commands pass `hermes plugins validate` but have not been run in a live Hermes session. Saved output from real runs, including four bundled Hermes plugins, is in [`docs/evidence/`](docs/evidence/).
 
 The tests badge is not a CI badge: GitHub's runners cannot run `sandbox-exec`, so the suite runs locally on macOS only.
 
